@@ -34,9 +34,13 @@ namespace kortSpilConsole
             }
 
             shuffle();
+        }
 
-
-           
+        public Card Draw()
+        {
+            Card c = cards[0]; //finder øverste kort
+            cards.Remove(c); //fjerner kort fra bunken (c = øverste kort)
+            return c; //giver kortet til den der kalder metoden
         }
 
         public void shuffle()

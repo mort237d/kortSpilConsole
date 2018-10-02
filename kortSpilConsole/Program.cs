@@ -7,14 +7,20 @@ using System.Threading.Tasks;
 
 namespace kortSpilConsole
 {
-    //Jonas Was here, with Oliver! Jonas var har ikke først
     class Program
     {
-        //Oliver was here
+        //Oliver was gud
         static void Main(string[] args)
         {
             Deck deck = new Deck();
             Console.WriteLine(deck);
+
+            Card c = deck.Draw();
+            Console.WriteLine(c);
+            Console.WriteLine("");
+            Console.WriteLine(deck);
+
+            Console.ReadLine();
         }
     }
 }
