@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace kortSpilConsole
 {
+    //Jonas Was here
     class Program
     {
         //Oliver was here
