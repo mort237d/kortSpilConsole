@@ -29,13 +29,32 @@ namespace kortSpilConsole
                 //yellow cards
                 cards[i + 57] = new Card("yellow", i);
                 cards[i + 66] = new Card("yellow", i);
+
             }
 
-            for (int i = 0; i < cards.Length; i++)
-            {
-                Console.WriteLine(cards[i]);
-            }
+            shuffle();
+
+
+           
         }
 
+        public void shuffle()
+        {
+            // shuffle array
+            Random random = new Random();
+            cards = cards.OrderBy(x => random.Next()).ToArray();
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < cards.Length; i++)
+            {
+                sb.Append(cards[i]);
+                sb.Append("; ");
+            }
+
+            return sb.ToString();
+        }
     }
 }
