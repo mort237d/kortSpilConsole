@@ -7,13 +7,20 @@ using System.Threading.Tasks;
 
 namespace kortSpilConsole
 {
-    //Jonas Was here
     class Program
     {
+        //Oliver was gud
         static void Main(string[] args)
         {
             Deck deck = new Deck();
             Console.WriteLine(deck);
+
+            Card c = deck.Draw();
+            Console.WriteLine(c);
+            Console.WriteLine("");
+            Console.WriteLine(deck);
+
+            Console.ReadLine();
         }
     }
 }

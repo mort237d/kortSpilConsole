@@ -8,46 +8,54 @@ namespace kortSpilConsole
 {
     class Deck
     {
-        Card[] cards = new Card[76];
+        List<Card> cards = new List<Card>();
+        //Card[] cards = new Card[76];
 
         public Deck()
         {
             for (int i = 0; i < 10; i++)
             {
                 // red cards
-                cards[i] = new Card("red", i);
-                cards[i+9] = new Card("red", i);
+                cards.Add(new Card("red", i));
+                cards.Add(new Card("red", i));
 
                 //blue cards
-                cards[i+19] = new Card("blue", i);
-                cards[i + 28] = new Card("blue", i);
+                cards.Add(new Card("blue", i));
+                cards.Add(new Card("blue", i));
 
                 //green cards
-                cards[i + 38] = new Card("green", i);
-                cards[i + 47] = new Card("green", i);
+                cards.Add(new Card("green", i));
+                cards.Add(new Card("green", i));
 
                 //yellow cards
-                cards[i + 57] = new Card("yellow", i);
-                cards[i + 66] = new Card("yellow", i);
+                cards.Add(new Card("yellow", i));
+                cards.Add(new Card("yellow", i));
 
             }
 
             shuffle();
-            
+
+        }
+
+        public Card Draw()
+        {
+            Card c = cards[0]; //finder øverste kort
+            cards.Remove(c); //fjerner kort fra bunken (c = øverste kort)
+            return c; //giver kortet til den der kalder metoden
         }
 
         public void shuffle()
         {
             // shuffle array
             Random random = new Random();
-            cards = cards.OrderBy(x => random.Next()).ToArray();
+            cards = cards.OrderBy(x => random.Next()).ToList();
         }
         
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < cards.Length; i++)
+            for (int i = 0; i < cards.Count; i++)
             {
                 sb.Append("[");
                 sb.Append(cards[i]);
