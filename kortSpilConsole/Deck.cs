@@ -33,9 +33,7 @@ namespace kortSpilConsole
             }
 
             shuffle();
-
-
-           
+            
         }
 
         public void shuffle()
@@ -44,14 +42,16 @@ namespace kortSpilConsole
             Random random = new Random();
             cards = cards.OrderBy(x => random.Next()).ToArray();
         }
+        
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < cards.Length; i++)
             {
+                sb.Append("[");
                 sb.Append(cards[i]);
-                sb.Append("; ");
+                sb.Append("], ");
             }
 
             return sb.ToString();
