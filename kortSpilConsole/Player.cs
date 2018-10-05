@@ -19,12 +19,15 @@ namespace kortSpilConsole
 
         public void DrawCard()
         {
-            //TODO spilleren tager et kort fra bunken op på hånden
+            Hand.Add(game.deck.Draw());
         }
 
         public void DrawCard(int numberOfCards)
         {
-            //TODO spileren tager n kort fra bunken op på hånden
+            for (int i = 0; i < numberOfCards; i++)
+            {
+                DrawCard();
+            }
         }
 
         public override string ToString()
