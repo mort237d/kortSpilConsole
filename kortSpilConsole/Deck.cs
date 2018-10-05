@@ -9,6 +9,7 @@ namespace kortSpilConsole
     class Deck
     {
         List<Card> cards = new List<Card>();
+        List<Card> cardsRevealed = new List<Card>();
         //Card[] cards = new Card[76];
 
         public Deck()
