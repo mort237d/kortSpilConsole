@@ -35,6 +35,7 @@ namespace kortSpilConsole
             }
 
             shuffle();
+
         }
 
         public Card Draw()
@@ -50,14 +51,16 @@ namespace kortSpilConsole
             Random random = new Random();
             cards = cards.OrderBy(x => random.Next()).ToList();
         }
+        
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < cards.Count; i++)
             {
+                sb.Append("[");
                 sb.Append(cards[i]);
-                sb.Append("; ");
+                sb.Append("], ");
             }
 
             return sb.ToString();
