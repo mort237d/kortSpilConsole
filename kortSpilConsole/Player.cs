@@ -8,5 +8,11 @@ namespace kortSpilConsole
 {
     class Player
     {
+        public List<Card> Hand { get; set; }
+
+        public void DrawCard()
+        {
+            
+        }
     }
 }
