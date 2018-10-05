@@ -19,7 +19,12 @@ namespace kortSpilConsole
 
         public void DrawCard()
         {
-            
+            //TODO spilleren tager et kort fra bunken op på hånden
+        }
+
+        public void DrawCard(int numberOfCards)
+        {
+            //TODO spileren tager n kort fra bunken op på hånden
         }
     }
 }
