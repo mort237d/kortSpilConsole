@@ -10,7 +10,6 @@ namespace kortSpilConsole
     {
         List<Card> cards = new List<Card>();
         List<Card> cardsRevealed = new List<Card>();
-        //Card[] cards = new Card[76];
 
         public Deck()
         {
@@ -35,7 +34,7 @@ namespace kortSpilConsole
             }
 
             shuffle();
-
+            cardsRevealed.Add(Draw());
         }
 
         public Card Draw()
@@ -45,7 +44,7 @@ namespace kortSpilConsole
             return c; //giver kortet til den der kalder metoden
         }
 
-        public void shuffle()
+        public void Shuffle()
         {
             // shuffle array
             Random random = new Random();
@@ -64,6 +63,11 @@ namespace kortSpilConsole
             }
 
             return sb.ToString();
+        }
+
+        public Card Peek()
+        {
+            return cardsRevealed.Last();
         }
     }
 }

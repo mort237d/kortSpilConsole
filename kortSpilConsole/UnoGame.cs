@@ -8,5 +8,9 @@ namespace kortSpilConsole
 {
     class UnoGame
     {
+        public Deck unoDeck { get; set; }
+        public List<Player> players;
+
+
     }
 }
