@@ -9,18 +9,13 @@ namespace kortSpilConsole
 {
     class Program
     {
-        //Oliver was gud
         static void Main(string[] args)
         {
             Deck deck = new Deck();
-            Console.WriteLine(deck);
+            Console.WriteLine(deck.peek());
 
-            Card c = deck.Draw();
-            Console.WriteLine(c);
-            Console.WriteLine("");
-            Console.WriteLine(deck);
-
-            Console.ReadLine();
+            Console.WriteLine(deck.peek());
+          
         }
     }
 }

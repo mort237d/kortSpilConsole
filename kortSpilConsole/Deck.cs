@@ -9,7 +9,7 @@ namespace kortSpilConsole
     class Deck
     {
         List<Card> cards = new List<Card>();
-        //Card[] cards = new Card[76];
+        private List<Card> cardsRevealed = new List<Card>();
 
         public Deck()
         {
@@ -18,30 +18,33 @@ namespace kortSpilConsole
                 // red cards
                 cards.Add(new Card("red", i));
                 cards.Add(new Card("red", i));
-
                 //blue cards
                 cards.Add(new Card("blue", i));
                 cards.Add(new Card("blue", i));
-
                 //green cards
                 cards.Add(new Card("green", i));
                 cards.Add(new Card("green", i));
-
                 //yellow cards
                 cards.Add(new Card("yellow", i));
                 cards.Add(new Card("yellow", i));
-
             }
 
             shuffle();
 
+            //move first card to revealed cards
+            cardsRevealed.Add(Draw());
         }
-
+        
         public Card Draw()
         {
             Card c = cards[0]; //finder øverste kort
             cards.Remove(c); //fjerner kort fra bunken (c = øverste kort)
             return c; //giver kortet til den der kalder metoden
+        }
+
+        public Card peek()
+        {
+            return cardsRevealed.Last();
         }
 
         public void shuffle()
