@@ -10,7 +10,7 @@ namespace kortSpilConsole
     {
         public String Color { get; set; }
         public int Value { get; set; }
-
+ 
         public Card(string color, int value)
         {
             Color = color;

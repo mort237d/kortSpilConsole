@@ -11,10 +11,10 @@ namespace kortSpilConsole
     {
         static void Main(string[] args)
         {
-            Deck deck = new Deck();
-            Console.WriteLine(deck.peek());
-
-            Console.WriteLine(deck.peek());
+            UnoGame game = new UnoGame();
+           
+            Console.WriteLine(game.deck.peek());
+            Console.WriteLine(game.deck.peek());
           
         }
     }

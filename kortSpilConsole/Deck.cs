@@ -10,9 +10,11 @@ namespace kortSpilConsole
     {
         private List<Card> cards = new List<Card>();
         private List<Card> cardsRevealed = new List<Card>();
-        
-        public Deck()
+        private UnoGame game;
+
+        public Deck(UnoGame game)
         {
+            this.game = game;
             for (int i = 0; i < 10; i++)
             {
                 // red cards

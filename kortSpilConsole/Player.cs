@@ -8,6 +8,12 @@ namespace kortSpilConsole
 {
     class Player
     {
+        private UnoGame game;
+
+        public Player(UnoGame game)
+        {
+            this.game = game;
+        }
 
         public List<Card> Hand { get; set; }
 
