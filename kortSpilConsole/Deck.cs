@@ -8,9 +8,9 @@ namespace kortSpilConsole
 {
     class Deck
     {
-        List<Card> cards = new List<Card>();
+        private List<Card> cards = new List<Card>();
         private List<Card> cardsRevealed = new List<Card>();
-
+        
         public Deck()
         {
             for (int i = 0; i < 10; i++)
@@ -30,8 +30,11 @@ namespace kortSpilConsole
             }
 
             shuffle();
+<<<<<<< HEAD
 
             //move first card to revealed cards
+=======
+>>>>>>> a5a8b1aed08fcac4359d294474a2cd245af6833a
             cardsRevealed.Add(Draw());
         }
         
@@ -42,12 +45,16 @@ namespace kortSpilConsole
             return c; //giver kortet til den der kalder metoden
         }
 
+<<<<<<< HEAD
         public Card peek()
         {
             return cardsRevealed.Last();
         }
 
         public void shuffle()
+=======
+        public void Shuffle()
+>>>>>>> a5a8b1aed08fcac4359d294474a2cd245af6833a
         {
             // shuffle array
             Random random = new Random();
@@ -66,6 +73,11 @@ namespace kortSpilConsole
             }
 
             return sb.ToString();
+        }
+
+        public Card Peek()
+        {
+            return cardsRevealed.Last();
         }
     }
 }
