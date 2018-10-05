@@ -8,9 +8,16 @@ namespace kortSpilConsole
 {
     class UnoGame
     {
-        public Deck unoDeck { get; set; }
-        public List<Player> players;
+        public Deck deck;
+        public Player player1;
+        public Player player2;
 
-
+        public UnoGame()
+        {
+            deck = new Deck(this);
+            player1 = new Player(this);
+            player2 = new Player(this);
+        }
+       
     }
 }

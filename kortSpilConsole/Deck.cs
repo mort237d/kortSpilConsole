@@ -29,12 +29,9 @@ namespace kortSpilConsole
                 cards.Add(new Card("yellow", i));
             }
 
-            shuffle();
-<<<<<<< HEAD
+            Shuffle();
 
             //move first card to revealed cards
-=======
->>>>>>> a5a8b1aed08fcac4359d294474a2cd245af6833a
             cardsRevealed.Add(Draw());
         }
         
@@ -45,16 +42,12 @@ namespace kortSpilConsole
             return c; //giver kortet til den der kalder metoden
         }
 
-<<<<<<< HEAD
         public Card peek()
         {
             return cardsRevealed.Last();
         }
 
-        public void shuffle()
-=======
         public void Shuffle()
->>>>>>> a5a8b1aed08fcac4359d294474a2cd245af6833a
         {
             // shuffle array
             Random random = new Random();
