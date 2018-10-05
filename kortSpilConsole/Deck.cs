@@ -44,11 +44,6 @@ namespace kortSpilConsole
             return c; //giver kortet til den der kalder metoden
         }
 
-        public Card peek()
-        {
-            return cardsRevealed.Last();
-        }
-
         public void Shuffle()
         {
             // shuffle array
@@ -58,7 +53,12 @@ namespace kortSpilConsole
 
         public bool playCard(Card card)
         {
-            //TODO tager et kort fra en spiller og tilføjer det ti lbunken
+            if (Peek().Color == card.Color || Peek().Value == card.Value)
+            {
+                cardsRevealed.Add(card);
+                return true;
+            }
+            else return false;
         }
 
         public override string ToString()
