@@ -26,5 +26,11 @@ namespace kortSpilConsole
         {
             //TODO spileren tager n kort fra bunken op på hånden
         }
+
+        public override string ToString()
+        {
+            //TODO print player navn og hans/hendes 'hånd'
+            return base.ToString();
+        }
     }
 }

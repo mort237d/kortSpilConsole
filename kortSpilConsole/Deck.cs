@@ -55,7 +55,11 @@ namespace kortSpilConsole
             Random random = new Random();
             cards = cards.OrderBy(x => random.Next()).ToList();
         }
-        
+
+        public bool playCard(Card card)
+        {
+            //TODO tager et kort fra en spiller og tilføjer det ti lbunken
+        }
 
         public override string ToString()
         {
