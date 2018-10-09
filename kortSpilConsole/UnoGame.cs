@@ -22,11 +22,9 @@ namespace kortSpilConsole
             players.Add(new Player("Beta", this));
             currentPlayer = players.First();
             //del kort ud til spiller 1
-            players[0].DrawCard(3);
-            players[0].DebugDrawCard("red", "+2");
-            players[0].DebugDrawCard("green", "+2");
-            players[0].DebugDrawCard("blue", "+2");
-            players[0].DebugDrawCard("yellow", "+2");
+            players[0].DrawCard(5);
+            players[0].DebugDrawCard("black", "change");
+            players[0].DebugDrawCard("black", "change +4");
             //del 7 kort ud til resten af spillerne
             for (int i = 1; i < players.Count; i++)
             {
@@ -50,10 +48,59 @@ namespace kortSpilConsole
                 {
                     if (currentPlayer.Hand[i-1].Value == "+2")
                     {
-                        Console.WriteLine("Næste spiller trækker 2 kort");
+                        Console.WriteLine("Næste spiller "+ players[players.IndexOf(currentPlayer) + 1].name + " trækker 2 kort");
                         players[players.IndexOf(currentPlayer) + 1].DrawCard();
                         players[players.IndexOf(currentPlayer) + 1].DrawCard();
                     }
+                    else if (currentPlayer.Hand[i - 1].Value == "change +4")
+                    {
+                        Console.WriteLine("Næste spiller " + players[players.IndexOf(currentPlayer) + 1].name + " trækker 4 kort");
+                        players[players.IndexOf(currentPlayer) + 1].DrawCard();
+                        players[players.IndexOf(currentPlayer) + 1].DrawCard();
+                        players[players.IndexOf(currentPlayer) + 1].DrawCard();
+                        players[players.IndexOf(currentPlayer) + 1].DrawCard();
+
+                        Console.WriteLine("Hvilken farve vil du have? (b)lue, (g)reen, (y)ellow eller (r)ed");
+                        string newColor = Console.ReadLine();
+                        if (newColor == "b")
+                        {
+                            currentPlayer.Hand[i - 1].Color = "blue";
+                        }
+                        else if (newColor == "g")
+                        {
+                            currentPlayer.Hand[i - 1].Color = "green";
+                        }
+                        else if (newColor == "y")
+                        {
+                            currentPlayer.Hand[i - 1].Color = "yellow";
+                        }
+                        else if (newColor == "r")
+                        {
+                            currentPlayer.Hand[i - 1].Color = "red";
+                        }
+                    }
+                    else if (currentPlayer.Hand[i - 1].Value == "change")
+                    {
+                        Console.WriteLine("Hvilken farve vil du have? (b)lue, (g)reen, (y)ellow eller (r)ed");
+                        string newColor = Console.ReadLine();
+                        if (newColor == "b")
+                        {
+                            currentPlayer.Hand[i - 1].Color = "blue";
+                        }
+                        else if (newColor == "g")
+                        {
+                            currentPlayer.Hand[i - 1].Color = "green";
+                        }
+                        else if (newColor == "y")
+                        {
+                            currentPlayer.Hand[i - 1].Color = "yellow";
+                        }
+                        else if (newColor == "r")
+                        {
+                            currentPlayer.Hand[i - 1].Color = "red";
+                        }
+                    }
+
                     currentPlayer.Hand.Remove(currentPlayer.Hand[i - 1]);
                     
                 }

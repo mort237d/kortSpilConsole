@@ -101,6 +101,11 @@ namespace kortSpilConsole
                 cardsRevealed.Add(card);
                 return true;
             }
+            else if (card.Color == "black")
+            {
+                cardsRevealed.Add(card);
+                return true;
+            }
             else return false;
         }
 
