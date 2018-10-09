@@ -30,8 +30,9 @@ namespace kortSpilConsole
                 cards.Add(new Card("yellow", ""+i));
                 cards.Add(new Card("yellow", ""+i));
 
-                cards.Add(new Card("red", "+2"));
+                
             }
+            cards.Add(new Card("red", "+2"));
 
             Shuffle();
 
