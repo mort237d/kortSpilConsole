@@ -20,11 +20,16 @@ namespace kortSpilConsole
             
             players.Add(new Player("Alfa", this));
             players.Add(new Player("Beta", this));
+            players.Add(new Player("Charlie", this));
+            players.Add(new Player("Delta", this));
+
             currentPlayer = players.First();
             //del kort ud til spiller 1
             players[0].DrawCard(5);
-            players[0].DebugDrawCard("black", "change");
-            players[0].DebugDrawCard("black", "change +4");
+            players[0].DebugDrawCard("blue", "reverse");
+            players[0].DebugDrawCard("red", "reverse");
+            players[0].DebugDrawCard("green", "reverse");
+            players[0].DebugDrawCard("yellow", "reverse");
             //del 7 kort ud til resten af spillerne
             for (int i = 1; i < players.Count; i++)
             {
@@ -40,7 +45,7 @@ namespace kortSpilConsole
                 Console.WriteLine(currentPlayer);
 
                 // spørg spiller1 om hvilket kort han vil ligge ned
-                Console.WriteLine("Spil et uno kort!");
+                Console.WriteLine("Spil et uno kort!"); 
                 int i = Convert.ToInt32(Console.ReadLine());
 
                 //TODO prøv at 'spille' det valgte kort til bunken
@@ -71,6 +76,14 @@ namespace kortSpilConsole
                         else if (newColor == "g") currentPlayer.Hand[i - 1].Color = "green";
                         else if (newColor == "y") currentPlayer.Hand[i - 1].Color = "yellow";
                         else if (newColor == "r") currentPlayer.Hand[i - 1].Color = "red";
+                    }
+                    else if (currentPlayer.Hand[i - 1].Value == "skip")
+                    {
+                        nextPlayer();
+                    }
+                    else if (currentPlayer.Hand[i - 1].Value == "reverse")
+                    {
+                        players.Reverse();
                     }
 
                     currentPlayer.Hand.Remove(currentPlayer.Hand[i - 1]);
