@@ -13,14 +13,30 @@ namespace kortSpilConsole
         List<Player> players = new List<Player>();
         private Player currentPlayer;
         private bool gameover = false;
+        private bool playerLoop = true;
+        private int antalSpillere;
 
         public UnoGame()
         {
             deck = new Deck(this);
 
-            Console.WriteLine("Hvor mange spillere er i?");
-            Console.Write(">");
-            int antalSpillere = Convert.ToInt32(Console.ReadLine());
+            while (playerLoop)
+            {
+                Console.WriteLine("Hvor mange spillere er i? (2-8 personer)");
+                Console.Write(">");
+                antalSpillere = Convert.ToInt32(Console.ReadLine());
+                if (antalSpillere >= 9 || antalSpillere < 2)
+                {
+                    Console.WriteLine("Ugyldigt input");
+                }
+                else
+                {
+                    playerLoop = false;
+                }
+
+            }
+            
+            
             for (int i = 1; i <= antalSpillere; i++)
             {
                 Console.WriteLine("Skriv navn på spiller " + i);
