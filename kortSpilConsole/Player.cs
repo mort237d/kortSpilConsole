@@ -9,7 +9,7 @@ namespace kortSpilConsole
     class Player
     {
         private UnoGame game;
-        private String name;
+        public String name;
         public List<Card> Hand { get; set; }
 
         public Player(string name, UnoGame game )
