@@ -9,9 +9,9 @@ namespace kortSpilConsole
     class Card
     {
         public String Color { get; set; }
-        public int Value { get; set; }
+        public String Value { get; set; }
  
-        public Card(string color, int value)
+        public Card(String color, String value)
         {
             Color = color;
             Value = value;

@@ -18,17 +18,17 @@ namespace kortSpilConsole
             for (int i = 0; i < 10; i++)
             {
                 // red cards
-                cards.Add(new Card("red", i));
-                cards.Add(new Card("red", i));
+                cards.Add(new Card("red", ""+i));
+                cards.Add(new Card("red", ""+i));
                 //blue cards
-                cards.Add(new Card("blue", i));
-                cards.Add(new Card("blue", i));
+                cards.Add(new Card("blue", ""+i));
+                cards.Add(new Card("blue", ""+i));
                 //green cards
-                cards.Add(new Card("green", i));
-                cards.Add(new Card("green", i));
+                cards.Add(new Card("green", ""+i));
+                cards.Add(new Card("green", ""+i));
                 //yellow cards
-                cards.Add(new Card("yellow", i));
-                cards.Add(new Card("yellow", i));
+                cards.Add(new Card("yellow", ""+i));
+                cards.Add(new Card("yellow", ""+i));
             }
 
             Shuffle();
