@@ -42,7 +42,7 @@ namespace kortSpilConsole
                 Console.WriteLine(currentPlayer);
 
                 // spørg spiller1 om hvilket kort han vil ligge ned
-                Console.WriteLine("Vælg et kort fuckhoved!");
+                Console.WriteLine("Spil et uno kort!");
                 int i = Convert.ToInt32(Console.ReadLine());
 
                 //TODO prøv at 'spille' det valgte kort til bunken
