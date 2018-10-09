@@ -29,8 +29,6 @@ namespace kortSpilConsole
                 //yellow cards
                 cards.Add(new Card("yellow", ""+i));
                 cards.Add(new Card("yellow", ""+i));
-
-                
             }
 
             for (int i = 0; i < 2; i++)
@@ -56,7 +54,6 @@ namespace kortSpilConsole
             {
                 cards.Add(new Card("black", "change +4"));
                 cards.Add(new Card("black", "change"));
-
             }
 
             Shuffle();
@@ -96,12 +93,7 @@ namespace kortSpilConsole
 
         public bool playCard(Card card)
         {
-            if (Peek().Color == card.Color || Peek().Value == card.Value)
-            {
-                cardsRevealed.Add(card);
-                return true;
-            }
-            else if (card.Color == "black")
+            if (Peek().Color == card.Color || Peek().Value == card.Value || card.Color == "black")
             {
                 cardsRevealed.Add(card);
                 return true;
