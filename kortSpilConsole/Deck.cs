@@ -32,7 +32,32 @@ namespace kortSpilConsole
 
                 
             }
-            cards.Add(new Card("red", "+2"));
+
+            for (int i = 0; i < 2; i++)
+            {
+                cards.Add(new Card("red", "+2"));
+                cards.Add(new Card("blue", "+2"));
+                cards.Add(new Card("green", "+2"));
+                cards.Add(new Card("yellow", "+2"));
+
+                cards.Add(new Card("red", "skip"));
+                cards.Add(new Card("blue", "skip"));
+                cards.Add(new Card("green", "skip"));
+                cards.Add(new Card("yellow", "skip"));
+
+                cards.Add(new Card("red", "reverse"));
+                cards.Add(new Card("blue", "reverse"));
+                cards.Add(new Card("green", "reverse"));
+                cards.Add(new Card("yellow", "reverse"));
+
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                cards.Add(new Card("black", "change +4"));
+                cards.Add(new Card("black", "change"));
+
+            }
 
             Shuffle();
 
