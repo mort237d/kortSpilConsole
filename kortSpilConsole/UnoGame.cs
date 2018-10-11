@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -20,32 +21,32 @@ namespace kortSpilConsole
         {
             deck = new Deck(this);
 
-            while (playerLoop)
-            {
-                Console.WriteLine("Hvor mange spillere er i? (2-8 personer)");
-                Console.Write(">");
-                antalSpillere = Convert.ToInt32(Console.ReadLine());
-                if (antalSpillere >= 9 || antalSpillere < 2)
-                {
-                    Console.WriteLine("Ugyldigt input");
-                }
-                else
-                {
-                    playerLoop = false;
-                }
-
-            }
+//            while (playerLoop)
+//            {
+//                Console.WriteLine("Hvor mange spillere er i? (2-8 personer)");
+//                Console.Write(">");
+//                antalSpillere = Convert.ToInt32(Console.ReadLine());
+//                if (antalSpillere >= 9 || antalSpillere < 2)
+//                {
+//                    Console.WriteLine("Ugyldigt input");
+//                }
+//                else
+//                {
+//                    playerLoop = false;
+//                }
+//
+//            }
+//            
+//            
+//            for (int i = 1; i <= antalSpillere; i++)
+//            {
+//                Console.WriteLine("Skriv navn på spiller " + i);
+//                string name = Console.ReadLine();
+//                players.Add(new Player(name, this));
+//            }
             
-            
-            for (int i = 1; i <= antalSpillere; i++)
-            {
-                Console.WriteLine("Skriv navn på spiller " + i);
-                string name = Console.ReadLine();
-                players.Add(new Player(name, this));
-            }
-            
-//            players.Add(new Player("Alfa", this));
-//            players.Add(new Player("Beta", this));
+            players.Add(new Player("Alfa", this));
+            players.Add(new Player("Beta", this));
 //            players.Add(new Player("Charlie", this));
 //            players.Add(new Player("Delta", this));
 
@@ -78,6 +79,8 @@ namespace kortSpilConsole
                     {
                         Console.WriteLine("Næste spiller "+ players[players.IndexOf(currentPlayer) + 1].name + " trækker 2 kort");
                         players[players.IndexOf(currentPlayer) + 1].DrawCard(2);
+
+                        currentPlayer.Hand.Remove(currentPlayer.Hand[i - 1]);
                     }
                     else if (currentPlayer.Hand[i - 1].Value == "change +4")
                     {
@@ -91,6 +94,8 @@ namespace kortSpilConsole
                         else if (newColor == "g")currentPlayer.Hand[i - 1].Color = "green";
                         else if (newColor == "y")currentPlayer.Hand[i - 1].Color = "yellow";
                         else if (newColor == "r")currentPlayer.Hand[i - 1].Color = "red";
+
+                        currentPlayer.Hand.Remove(currentPlayer.Hand[i - 1]);
                     }
                     else if (currentPlayer.Hand[i - 1].Value == "change")
                     {
@@ -101,14 +106,22 @@ namespace kortSpilConsole
                         else if (newColor == "g") currentPlayer.Hand[i - 1].Color = "green";
                         else if (newColor == "y") currentPlayer.Hand[i - 1].Color = "yellow";
                         else if (newColor == "r") currentPlayer.Hand[i - 1].Color = "red";
+
+                        currentPlayer.Hand.Remove(currentPlayer.Hand[i - 1]);
                     }
                     //TODO Skip kort fjerner et kort fra den man skipper, samt skip kortet, som lægges ikke fjernes.
-                    else if (currentPlayer.Hand[i - 1].Value == "skip") nextPlayer();
-                    else if (currentPlayer.Hand[i - 1].Value == "reverse") players.Reverse();
-
-                    currentPlayer.Hand.Remove(currentPlayer.Hand[i - 1]);
+                    else if (currentPlayer.Hand[i - 1].Value == "skip")
+                    {
+                        currentPlayer.Hand.Remove(currentPlayer.Hand[i - 1]);
+                        nextPlayer();
+                    }
+                    else if (currentPlayer.Hand[i - 1].Value == "reverse")
+                    {
+                        players.Reverse();
+                        currentPlayer.Hand.Remove(currentPlayer.Hand[i - 1]);
+                    }
                 }
-                else if (deck.Peek().Value == "skip")
+                else
                 {
                     currentPlayer.DrawCard();
                 }
@@ -117,7 +130,7 @@ namespace kortSpilConsole
             }
         }
 
-        private void nextPlayer()
+    private void nextPlayer()
         {
             if (currentPlayer == players.Last())
             {
