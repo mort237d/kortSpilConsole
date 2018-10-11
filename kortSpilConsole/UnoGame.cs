@@ -21,38 +21,47 @@ namespace kortSpilConsole
         {
             deck = new Deck(this);
 
-//            while (playerLoop)
-//            {
-//                Console.WriteLine("Hvor mange spillere er i? (2-8 personer)");
-//                Console.Write(">");
-//                antalSpillere = Convert.ToInt32(Console.ReadLine());
-//                if (antalSpillere >= 9 || antalSpillere < 2)
-//                {
-//                    Console.WriteLine("Ugyldigt input");
-//                }
-//                else
-//                {
-//                    playerLoop = false;
-//                }
-//
-//            }
-//            
-//            
-//            for (int i = 1; i <= antalSpillere; i++)
-//            {
-//                Console.WriteLine("Skriv navn på spiller " + i);
-//                string name = Console.ReadLine();
-//                players.Add(new Player(name, this));
-//            }
+            while (playerLoop)
+            {
+                Console.WriteLine("Hvor mange spillere er i? (2-8 personer)");
+                Console.Write(">");
+                antalSpillere = Convert.ToInt32(Console.ReadLine());
+                if (antalSpillere >= 9 || antalSpillere < 2)
+                {
+                    Console.WriteLine("Ugyldigt input");
+                }
+                else
+                {
+                    playerLoop = false;
+                }
+
+            }
             
-            players.Add(new Player("Alfa", this));
-            players.Add(new Player("Beta", this));
+            
+            for (int i = 1; i <= antalSpillere; i++)
+            {
+                Console.WriteLine("Skriv navn på spiller " + i);
+                string name = Console.ReadLine();
+                players.Add(new Player(name, this));
+            }
+            
+//            players.Add(new Player("Alfa", this));
+//            players.Add(new Player("Beta", this));
 //            players.Add(new Player("Charlie", this));
 //            players.Add(new Player("Delta", this));
 
             currentPlayer = players.First();
             //del kort ud til spiller 1
             players[0].DrawCard(7);
+//            players[0].DebugDrawCard("red", "+2");
+//            players[0].DebugDrawCard("blue", "+2");
+//            players[0].DebugDrawCard("yellow", "+2");
+//            players[0].DebugDrawCard("green", "+2");
+//
+//            players[1].DebugDrawCard("red", "+2");
+//            players[1].DebugDrawCard("blue", "+2");
+//            players[1].DebugDrawCard("yellow", "+2");
+//            players[1].DebugDrawCard("green", "+2");
             //del 7 kort ud til resten af spillerne
             for (int i = 1; i < players.Count; i++)
             {
@@ -77,15 +86,30 @@ namespace kortSpilConsole
                 {
                     if (currentPlayer.Hand[i-1].Value == "+2")
                     {
-                        Console.WriteLine("Næste spiller "+ players[players.IndexOf(currentPlayer) + 1].name + " trækker 2 kort");
-                        players[players.IndexOf(currentPlayer) + 1].DrawCard(2);
-
+                        if (currentPlayer == players.Last())
+                        {
+                            Console.WriteLine("Næste spiller " + players.First().name + " trækker 2 kort");
+                            players.First().DrawCard(2);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Næste spiller " + players[players.IndexOf(currentPlayer) + 1].name + " trækker 2 kort");
+                            players[players.IndexOf(currentPlayer) + 1].DrawCard(2);
+                        }
                         currentPlayer.Hand.Remove(currentPlayer.Hand[i - 1]);
                     }
                     else if (currentPlayer.Hand[i - 1].Value == "change +4")
                     {
-                        Console.WriteLine("Næste spiller " + players[players.IndexOf(currentPlayer) + 1].name + " trækker 4 kort");
-                        players[players.IndexOf(currentPlayer) + 1].DrawCard(4);
+                        if (currentPlayer == players.Last())
+                        {
+                            Console.WriteLine("Næste spiller " + players.First().name + " trækker 4 kort");
+                            players.First().DrawCard(4);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Næste spiller " + players[players.IndexOf(currentPlayer) + 1].name + " trækker 4 kort");
+                            players[players.IndexOf(currentPlayer) + 1].DrawCard(4);
+                        }
 
                         Console.WriteLine("Hvilken farve vil du have? (b)lue, (g)reen, (y)ellow eller (r)ed");
                         Console.Write(">");
