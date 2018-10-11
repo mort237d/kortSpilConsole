@@ -102,12 +102,13 @@ namespace kortSpilConsole
                         else if (newColor == "y") currentPlayer.Hand[i - 1].Color = "yellow";
                         else if (newColor == "r") currentPlayer.Hand[i - 1].Color = "red";
                     }
+                    //TODO Skip kort fjerner et kort fra den man skipper, samt skip kortet, som lægges ikke fjernes.
                     else if (currentPlayer.Hand[i - 1].Value == "skip") nextPlayer();
                     else if (currentPlayer.Hand[i - 1].Value == "reverse") players.Reverse();
 
                     currentPlayer.Hand.Remove(currentPlayer.Hand[i - 1]);
                 }
-                else
+                else if (deck.Peek().Value == "skip")
                 {
                     currentPlayer.DrawCard();
                 }

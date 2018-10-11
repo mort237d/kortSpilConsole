@@ -93,7 +93,7 @@ namespace kortSpilConsole
 
         public bool playCard(Card card)
         {
-            if (Peek().Color == card.Color || Peek().Value == card.Value || card.Color == "black")
+            if (Peek().Color == card.Color || Peek().Value == card.Value || card.Color == "black" || Peek().Color == "black")
             {
                 cardsRevealed.Add(card);
                 return true;
